@@ -10,8 +10,8 @@ downloads = './downloads/{}/'
 
 START_BUTTONS=[
     [
-        InlineKeyboardButton('السورس', url='https://github.com/JMTHON-AR/TikTok'),
-        InlineKeyboardButton('قناة البوتات', url='https://t.me/jmthon'),
+        InlineKeyboardButton('المطور', url='https://t.me/EO1EEE'),
+        InlineKeyboardButton('قناة البوت', url='https://t.me/EO1EEE1'),
     ],]
 
 DL_BUTTONS=[
@@ -40,7 +40,7 @@ async def run_cmd(cmd: str) -> Tuple[str, str, int, int]:
 
 @jmthon.on_message(filters.command('start') & filters.private)
 async def _start(bot, update):
-  await update.reply_text(f"** مرحبا أنا بوت تحميل من التيكتوك يمكنك تحميل الفيديوهات او المقاطع الصوتية من هنا فقط ارسل رابط المقطع هنا**", True, reply_markup=InlineKeyboardMarkup(START_BUTTONS))
+  await update.reply_text(f"** مرحبا أنا بوت تحميل من التيكتوك يمكنك تحميل الفيديوهات : فقط ارسل رابط المقطع هنا**", True, reply_markup=InlineKeyboardMarkup(START_BUTTONS))
 
 # Downloader for tiktok
 @jmthon.on_message(filters.regex(pattern='.*http.*') & filters.private)
