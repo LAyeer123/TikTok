@@ -15,10 +15,9 @@ START_BUTTONS=[
 
 DL_BUTTONS=[
     [
-        InlineKeyboardButton('بدون علامه مائية', callback_data='nowm'),
-        InlineKeyboardButton('علامة مائية', callback_data='wm'),
+        InlineKeyboardButton('بدون علامة مائية', callback_data='nowm'),
     ],
-    [InlineKeyboardButton('مقطع صوتي', callback_data='audio')],
+    [InlineKeyboardButton('ملف صوتي', callback_data='audio')],
 ]
 
 
@@ -39,7 +38,7 @@ async def run_cmd(cmd: str) -> Tuple[str, str, int, int]:
 
 @jmthon.on_message(filters.command('start') & filters.private)
 async def _start(bot, update):
-  await update.reply_text(f"** مرحبا أنا بوت تحميل من التيكتوك يمكنك تحميل الفيديوهات : فقط ارسل رابط المقطع هنا**", True, reply_markup=InlineKeyboardMarkup(START_BUTTONS))
+  await update.reply_text(f"** You can download vid tik tok without watermark : Just send the link**", True, reply_markup=InlineKeyboardMarkup(START_BUTTONS))
 
 # Downloader for tiktok
 @jmthon.on_message(filters.regex(pattern='.*http.*') & filters.private)
@@ -49,7 +48,7 @@ async def _tiktok(bot, update):
   resp = session.head(url, allow_redirects=True)
   if not 'tiktok.com' in resp.url:
     return
-  await update.reply('عليك تحديد نوع التنزيل من الاسفل ', True, reply_markup=InlineKeyboardMarkup(DL_BUTTONS))
+  await update.reply('**حدد نوع التحميل**', True, reply_markup=InlineKeyboardMarkup(DL_BUTTONS))
 
 # Callbacks
 @jmthon.on_callback_query()
